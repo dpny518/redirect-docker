@@ -25,11 +25,14 @@ docker run -p 8000:8000 my-oauth-server
 ```
 This command runs the my-oauth-server Docker container and maps port 8000 of the container to port 8000 on your host. This allows you to access the server at http://localhost:8000.
 
-Testing the Application
-To test that the application is running correctly, navigate to:
-
-
+### Testing the New Setup
+Initiate OAuth Flow: Navigate to your OAuth endpoint with an example URL like:
 ```bash
 http://localhost:8000/oauth/callback?code=test123
 ```
-You should see a message indicating that the authorization code has been received.
+You should see a confirmation that the code was received.
+Retrieve Stored Code: Access the new endpoint:
+```bash
+http://localhost:8000/getcode
+```
+This should return the last stored authorization code, allowing your local console app or another component to retrieve it.
